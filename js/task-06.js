@@ -28,4 +28,3 @@ function inputFocus(event) {
     inputRef.classList.remove("valid");
   }
 }
-event.addEventListener("blur", (event) => inputFocus(event));
