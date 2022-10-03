@@ -12,19 +12,20 @@
   placeholder="Please enter 6 symbols"
 />; */
 }
-const textInputRef = document.querySelector("input");
-const validInputRef = document.querySelector("#validation-input");
-console.log(textInputRef);
-console.log(validInputRef);
-textInputRef.addEventListener("focus", () => {
-  textInputRef.border = validInputRef.valid;
-});
 
-// const textInput = document.querySelector(".text-input");
-// textInput.addEventListener("focus", () => {
-//   textInput.value = "This input has focus";
-// });
+const inputRef = document.querySelector("#validation-input");
+const symbolLength = inputRef.getAttribute("data-length");
+// console.log(inputRef);
+// console.log(symbolLength);
 
-// textInput.addEventListener("blur", () => {
-//   textInput.value = "";
-// });
+inputRef.addEventListener("blur", (event) => inputFocus(event));
+function inputFocus(event) {
+  if (event.currentTarget.value.length == symbolLength) {
+    inputRef.classList.add("valid");
+    inputRef.classList.remove("invalid");
+  } else {
+    inputRef.classList.add("invalid");
+    inputRef.classList.remove("valid");
+  }
+}
+event.addEventListener("blur", (event) => inputFocus(event));

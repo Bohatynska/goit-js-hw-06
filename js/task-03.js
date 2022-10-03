@@ -20,4 +20,4 @@ const newGallery = images
   })
   .join(" ");
 galleryListRef.insertAdjacentHTML("beforeend", newGallery);
-console.log(newGallery);
+// console.log(newGallery);
